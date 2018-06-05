@@ -1,12 +1,10 @@
 const express = require('express');
-const { Validator, ValidationError } = require('express-json-validator-middleware');
 const Project = require('../models/project');
-
 
 const router = express.Router();
 
 /* GET /projects/:id */
-router.get('/:id', (req, res, next) => {
+router.get('/:id', (req, res) => {
   const { id } = req.params;
   Project.findById(id, {}, {}, (err, project) => {
     res.send({
