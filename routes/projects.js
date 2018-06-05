@@ -1,15 +1,18 @@
 const express = require('express');
 const { Validator, ValidationError } = require('express-json-validator-middleware');
-const shortid = require('shortid');
 const Project = require('../models/project');
 
 
 const router = express.Router();
 
-/* GET /projects */
-router.get('/', (req, res, next) => {
-  res.json({
-    hello: shortid.generate(),
+/* GET /projects/:id */
+router.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+  Project.findById(id, {}, {}, (err, project) => {
+    res.send({
+      status: 'success',
+      project,
+    });
   });
 });
 
@@ -18,12 +21,9 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res) => {
   const { body } = req;
 
-  const id = shortid.generate();
-
-  const config = { id, ...body };
-  const project = new Project(config);
+  const project = new Project(body);
   project.save()
-    .then(({ _id: id }) => {
+    .then(() => {
       res.send({
         status: 'success',
         project,
@@ -34,6 +34,24 @@ router.post('/', (req, res) => {
         status: `error: ${err}`,
       });
     }));
+});
+
+/* POST /projects/:id */
+/* Update a project by id */
+router.post('/:id', (req, res) => {
+  const { id } = req.params;
+  Project.findByIdAndUpdate(
+    id,
+    {
+      $set: req.body,
+      $inc: { __v: 1 },
+    },
+    { new: true },
+    (err, project) => {
+      if (err) return handleError(err);
+      res.send(project);
+    },
+  );
 });
 
 module.exports = router;

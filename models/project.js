@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
+const shortid = require('shortid');
 
 const ProjectSchema = new mongoose.Schema({
-  id: {
+  _id: {
     type: String,
     required: true,
+    default: shortid.generate(),
   },
   meta: {
     type: Object,
@@ -14,7 +16,6 @@ const ProjectSchema = new mongoose.Schema({
     required: true,
   },
 });
-
 
 const Project = mongoose.model('Project', ProjectSchema);
 
