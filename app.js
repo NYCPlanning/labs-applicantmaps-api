@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
-const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 
 const bodyParser = require('body-parser');
@@ -29,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/projects', projects);
 
 // handle JsonSchemaValidationErrors
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.status(400);
 
   res.json({
@@ -48,7 +47,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
