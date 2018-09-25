@@ -8,13 +8,25 @@ const app = express();
 
 const listener = fortuneHTTP(store, {
   serializers: [
-    jsonApiSerializer,
-    fortuneHTTP.HtmlSerializer,
-    fortuneHTTP.FormUrlEncodedSerializer,
+    [
+      jsonApiSerializer,
+      {
+        uriTemplate: '{/type,ids,relatedField,relationship}{?query*}',
+        allowLevel: [
+          ['GET'], // Index
+          ['POST'], // Collection
+          ['GET', 'PATCH', 'DELETE'], // Records
+          ['GET'], // Related
+          ['GET', 'POST', 'PATCH', 'DELETE'], // Relationship
+        ],
+      },
+    ],
+    // fortuneHTTP.HtmlSerializer,
+    // fortuneHTTP.FormUrlEncodedSerializer,
   ],
 });
 
 app.use(cors());
-app.use('/', listener);
+app.use('/', (...args) => listener(...args).catch(error => ({ error })));
 
 module.exports = app;

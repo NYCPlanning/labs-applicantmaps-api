@@ -22,16 +22,17 @@ const store = fortune({
     zoningChangeMaps: [Array('zoningChangeMap')], // eslint-disable-line
   },
   areaMap: {
-    project: ['project'],
+    title: String,
+    project: 'project',
   },
   taxMap: {
-    project: ['project'],
+    project: 'project',
   },
   zoningSectionMap: {
-    project: ['project'],
+    project: 'project',
   },
   zoningChangeMap: {
-    project: ['project'],
+    project: 'project',
   },
 }, { adapter });
 
