@@ -21,8 +21,8 @@ const listener = fortuneHTTP(store, {
         ],
       },
     ],
-    // fortuneHTTP.HtmlSerializer,
-    // fortuneHTTP.FormUrlEncodedSerializer,
+    fortuneHTTP.HtmlSerializer,
+    fortuneHTTP.FormUrlEncodedSerializer,
   ],
 });
 
