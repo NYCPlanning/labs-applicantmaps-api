@@ -1,8 +1,22 @@
 const fortune = require('fortune');
 const mongodbAdapter = require('fortune-mongodb');
 
-// Fortune Store
-const adapter = [mongodbAdapter, {
+const { Adapter } = fortune;
+const MongodbAdapter = mongodbAdapter(Adapter);
+
+class ApplicationAdapter extends MongodbAdapter {
+  // override find to ignore all index requests
+  async find(...args) {
+    const [type, ids] = args;
+
+    // if requesting a project and no ids (all)
+    if (type === 'project' && !ids) return [];
+
+    return super.find(...args);
+  }
+}
+
+const adapter = [ApplicationAdapter, {
   url: process.env.MONGO_URI,
 }];
 
