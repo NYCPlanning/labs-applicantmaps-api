@@ -35,6 +35,12 @@ const store = fortune({
     zoningSectionMaps: [Array('zoningSectionMap')], // eslint-disable-line
     zoningChangeMaps: [Array('zoningChangeMap')], // eslint-disable-line
   },
+  applicantMap: {
+    paperOrientation: String,
+    paperSize: String,
+    mapBearing: Object,
+    boundsPolygon: Object,
+  },
   areaMap: {
     title: String,
     project: 'project',
