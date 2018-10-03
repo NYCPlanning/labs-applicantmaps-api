@@ -30,29 +30,39 @@ const store = fortune({
     zapProjectId: String,
     description: String,
     datePrepared: Number,
-    areaMaps: [Array('areaMap')], // eslint-disable-line
+    areaMaps: [Array('areaMap'), 'project'], // eslint-disable-line
     taxMaps: [Array('taxMap')], // eslint-disable-line
     zoningSectionMaps: [Array('zoningSectionMap')], // eslint-disable-line
     zoningChangeMaps: [Array('zoningChangeMap')], // eslint-disable-line
   },
-  applicantMap: {
+  areaMap: {
+    title: String,
+    project: ['project', 'areaMaps'],
     paperOrientation: String,
     paperSize: String,
     mapBearing: Object,
     boundsPolygon: Object,
   },
-  areaMap: {
-    title: String,
-    project: 'project',
-  },
   taxMap: {
     project: 'project',
+    paperOrientation: String,
+    paperSize: String,
+    mapBearing: Object,
+    boundsPolygon: Object,
   },
   zoningSectionMap: {
     project: 'project',
+    paperOrientation: String,
+    paperSize: String,
+    mapBearing: Object,
+    boundsPolygon: Object,
   },
   zoningChangeMap: {
     project: 'project',
+    paperOrientation: String,
+    paperSize: String,
+    mapBearing: Object,
+    boundsPolygon: Object,
   },
 }, { adapter });
 
