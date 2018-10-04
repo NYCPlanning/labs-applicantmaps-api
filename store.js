@@ -25,28 +25,57 @@ const store = fortune({
     projectArea: Object,
     developmentSite: Object,
     rezoningArea: Object,
+    proposedZoning: Object,
+    proposedCommercialOverlays: Object,
+    proposedSpecialPurposeDistricts: Object,
     projectName: String,
     applicantName: String,
     zapProjectId: String,
     description: String,
     datePrepared: Number,
-    areaMaps: [Array('areaMap')], // eslint-disable-line
+    areaMaps: [Array('areaMap'), 'project'], // eslint-disable-line
     taxMaps: [Array('taxMap')], // eslint-disable-line
     zoningSectionMaps: [Array('zoningSectionMap')], // eslint-disable-line
     zoningChangeMaps: [Array('zoningChangeMap')], // eslint-disable-line
   },
   areaMap: {
     title: String,
-    project: 'project',
+    mapTypeLabel: String,
+    project: ['project', 'areaMaps'],
+    paperOrientation: String,
+    paperSize: String,
+    mapBearing: Number,
+    boundsPolygon: Object,
+    mapCenter: Object,
+    mapZoom: Number,
+    bufferSize: String,
   },
   taxMap: {
     project: 'project',
+    paperOrientation: String,
+    paperSize: String,
+    mapBearing: Number,
+    boundsPolygon: Object,
+    mapCenter: Object,
+    mapZoom: Number,
   },
   zoningSectionMap: {
     project: 'project',
+    paperOrientation: String,
+    paperSize: String,
+    mapBearing: Number,
+    boundsPolygon: Object,
+    mapCenter: Object,
+    mapZoom: Number,
   },
   zoningChangeMap: {
     project: 'project',
+    paperOrientation: String,
+    paperSize: String,
+    mapBearing: Number,
+    boundsPolygon: Object,
+    mapCenter: Object,
+    mapZoom: Number,
   },
 }, { adapter });
 

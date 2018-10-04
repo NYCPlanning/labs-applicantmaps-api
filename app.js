@@ -8,19 +8,7 @@ const app = express();
 
 const listener = fortuneHTTP(store, {
   serializers: [
-    [
-      jsonApiSerializer,
-      {
-        uriTemplate: '{/type,ids,relatedField,relationship}{?query*}',
-        allowLevel: [
-          ['GET'], // Index
-          ['POST'], // Collection
-          ['GET', 'PATCH', 'DELETE'], // Records
-          ['GET'], // Related
-          ['GET', 'POST', 'PATCH', 'DELETE'], // Relationship
-        ],
-      },
-    ],
+    [jsonApiSerializer],
     fortuneHTTP.HtmlSerializer,
     fortuneHTTP.FormUrlEncodedSerializer,
   ],
