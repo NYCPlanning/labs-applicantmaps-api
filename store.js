@@ -25,6 +25,9 @@ const store = fortune({
     projectArea: Object,
     developmentSite: Object,
     rezoningArea: Object,
+    proposedZoning: Object,
+    proposedCommercialOverlays: Object,
+    proposedSpecialPurposeDistricts: Object,
     projectName: String,
     applicantName: String,
     zapProjectId: String,
@@ -37,6 +40,7 @@ const store = fortune({
   },
   areaMap: {
     title: String,
+    mapTypeLabel: String,
     project: ['project', 'areaMaps'],
     paperOrientation: String,
     paperSize: String,
@@ -44,6 +48,7 @@ const store = fortune({
     boundsPolygon: Object,
     mapCenter: Object,
     mapZoom: Number,
+    bufferSize: String,
   },
   taxMap: {
     project: 'project',
