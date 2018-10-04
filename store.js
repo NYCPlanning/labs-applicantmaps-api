@@ -42,6 +42,8 @@ const store = fortune({
     paperSize: String,
     mapBearing: Number,
     boundsPolygon: Object,
+    mapCenter: Object,
+    mapZoom: Number,
   },
   taxMap: {
     project: 'project',
@@ -49,6 +51,8 @@ const store = fortune({
     paperSize: String,
     mapBearing: Number,
     boundsPolygon: Object,
+    mapCenter: Object,
+    mapZoom: Number,
   },
   zoningSectionMap: {
     project: 'project',
@@ -56,6 +60,8 @@ const store = fortune({
     paperSize: String,
     mapBearing: Number,
     boundsPolygon: Object,
+    mapCenter: Object,
+    mapZoom: Number,
   },
   zoningChangeMap: {
     project: 'project',
@@ -63,6 +69,8 @@ const store = fortune({
     paperSize: String,
     mapBearing: Number,
     boundsPolygon: Object,
+    mapCenter: Object,
+    mapZoom: Number,
   },
 }, { adapter });
 
