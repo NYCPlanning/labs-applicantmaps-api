@@ -22,17 +22,25 @@ const adapter = [ApplicationAdapter, {
 
 const store = fortune({
   project: {
-    projectArea: Object,
-    developmentSite: Object,
-    rezoningArea: Object,
-    proposedZoning: Object,
-    proposedCommercialOverlays: Object,
-    proposedSpecialPurposeDistricts: Object,
     projectName: String,
     applicantName: String,
     zapProjectId: String,
     description: String,
     datePrepared: Number,
+
+    needProjectArea: Boolean,
+    needRezoning: Boolean,
+    needUnderlyingZoning: Boolean,
+    needCommercialOverlay: Boolean,
+    needSpecialDistrict: Boolean,
+
+    developmentSite: Object,
+    projectArea: Object,
+    rezoningArea: Object,
+    proposedZoning: Object,
+    proposedCommercialOverlays: Object,
+    proposedSpecialDistricts: Object,
+
     areaMaps: [Array('areaMap'), 'project'], // eslint-disable-line
     taxMaps: [Array('taxMap')], // eslint-disable-line
     zoningSectionMaps: [Array('zoningSectionMap')], // eslint-disable-line
@@ -40,7 +48,6 @@ const store = fortune({
   },
   areaMap: {
     title: String,
-    mapTypeLabel: String,
     project: ['project', 'areaMaps'],
     paperOrientation: String,
     paperSize: String,
@@ -48,7 +55,6 @@ const store = fortune({
     boundsPolygon: Object,
     mapCenter: Object,
     mapZoom: Number,
-    bufferSize: String,
   },
   taxMap: {
     project: 'project',
