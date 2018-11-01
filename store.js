@@ -41,6 +41,8 @@ const store = fortune({
     proposedCommercialOverlays: Object,
     proposedSpecialDistricts: Object,
 
+    currentStep: Object,
+
     areaMaps: [Array('areaMap'), 'project'], // eslint-disable-line
     taxMaps: [Array('taxMap')], // eslint-disable-line
     zoningSectionMaps: [Array('zoningSectionMap')], // eslint-disable-line
@@ -48,6 +50,7 @@ const store = fortune({
   },
   areaMap: {
     title: String,
+    mapTypeLabel: String,
     project: ['project', 'areaMaps'],
     paperOrientation: String,
     paperSize: String,
@@ -55,6 +58,7 @@ const store = fortune({
     boundsPolygon: Object,
     mapCenter: Object,
     mapZoom: Number,
+    bufferSize: String,
   },
   taxMap: {
     project: 'project',
