@@ -41,7 +41,7 @@ const store = fortune({
     underlyingZoning: Object,
     commercialOverlays: Object,
     specialPurposeDistricts: Object,
-    
+
     // deprecated: these were renamed to the previous 3 attrs
     proposedZoning: Object,
     proposedCommercialOverlays: Object,
