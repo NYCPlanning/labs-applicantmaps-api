@@ -3,9 +3,20 @@ const express = require('express');
 const router = express.Router();
 const puppeteer = require('puppeteer');
 
+let host;
+switch (process.env.NODE_ENV) {
+  case 'production':
+    host = 'https://applicantmaps.planning.nyc.gov';
+    break;
+  case 'development':
+    host = 'https://applicantmaps-staging.planninglabs.nyc';
+    break;
+  default:
+    host = 'http://localhost:4200';
+}
 
 async function generatePdf(id, format = 'Tabloid', landscape = true) {
-  const url = `http://localhost:4200/projects/${id}/edit/map/edit`;
+  const url = `${host}/projects/${id}/edit/map/edit`;
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
