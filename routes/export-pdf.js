@@ -20,7 +20,7 @@ async function generatePdf(id, format = 'Tabloid', landscape = true) {
 
   const browser = await puppeteer.launch({
     headless: false,
-    args: ['--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox'],
+    args: ['--headless', '--disable-setuid-sandbox', '--no-sandbox'],
   });
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: 'networkidle0' });
