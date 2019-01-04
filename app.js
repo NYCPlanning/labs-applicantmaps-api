@@ -3,6 +3,7 @@ const jsonApiSerializer = require('fortune-json-api');
 const express = require('express');
 const cors = require('cors');
 const store = require('./store');
+const exportPDF = require('./routes/export-pdf');
 
 const app = express();
 
@@ -15,6 +16,9 @@ const listener = fortuneHTTP(store, {
 });
 
 app.use(cors());
+
+app.use('/export-pdf', exportPDF);
+
 app.use('/', (...args) => listener(...args).catch(error => ({ error })));
 
 module.exports = app;
