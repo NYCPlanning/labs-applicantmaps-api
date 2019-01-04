@@ -8,7 +8,7 @@ switch (process.env.NODE_ENV) {
   case 'production':
     host = 'https://applicantmaps.planning.nyc.gov';
     break;
-  case 'development':
+  case 'staging':
     host = 'https://applicantmaps-staging.planninglabs.nyc';
     break;
   default:
