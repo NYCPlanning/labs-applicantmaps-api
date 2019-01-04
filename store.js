@@ -51,6 +51,7 @@ const store = fortune({
 
     areaMaps: [Array('areaMap'), 'project'], // eslint-disable-line
     taxMaps: [Array('taxMap')], // eslint-disable-line
+    geometricProperties: [Array('geometricProperty'), 'project'], // eslint-disable-line
     zoningSectionMaps: [Array('zoningSectionMap')], // eslint-disable-line
     zoningChangeMaps: [Array('zoningChangeMap')], // eslint-disable-line
   },
@@ -74,6 +75,15 @@ const store = fortune({
     boundsPolygon: Object,
     mapCenter: Object,
     mapZoom: Number,
+  },
+  geometricProperty: {
+    project: ['project', 'geometricProperties'],
+    geometryType: String,
+    proposedGeometry: Object,
+    queryName: String,
+    hasCanonical: Boolean,
+    canonical: Object,
+    annotations: Object,
   },
   zoningSectionMap: {
     project: 'project',
