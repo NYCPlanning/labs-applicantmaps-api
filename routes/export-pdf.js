@@ -19,9 +19,8 @@ async function generatePdf(id, format = 'Tabloid', landscape = true) {
   const url = `${host}/projects/${id}/edit/map/edit`;
 
   const browser = await puppeteer.launch({
-    headless: false,
     dumpio: true,
-    args: ['--headless', '--disable-setuid-sandbox', '--no-sandbox', 'disable-gpu'],
+    args: ['--disable-setuid-sandbox', '--no-sandbox'],
   });
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: 'networkidle0' });
