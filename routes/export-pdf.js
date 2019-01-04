@@ -18,7 +18,7 @@ switch (process.env.NODE_ENV) {
 async function generatePdf(id, format = 'Tabloid', landscape = true) {
   const url = `${host}/projects/${id}/edit/map/edit`;
 
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   const page = await browser.newPage();
   await page.goto(url, { waitUntil: 'networkidle0' });
   const buffer = await page.pdf({
