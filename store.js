@@ -47,6 +47,8 @@ const store = fortune({
     proposedCommercialOverlays: Object,
     proposedSpecialDistricts: Object,
 
+    annotations: Object,
+
     currentStep: Object,
 
     areaMaps: [Array('areaMap'), 'project'], // eslint-disable-line
