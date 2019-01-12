@@ -37,7 +37,6 @@ const store = fortune({
     developmentSite: Object,
     projectArea: Object,
     rezoningArea: Object,
-
     underlyingZoning: Object,
     commercialOverlays: Object,
     specialPurposeDistricts: Object,
