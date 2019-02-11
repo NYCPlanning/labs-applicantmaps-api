@@ -20,7 +20,7 @@ app.use(cors());
 app.use('/export-pdf', exportPDF);
 
 app.use('/', (...args) => listener(...args).catch((error) => {
-  console.error(error);
+  console.error(error); // eslint-disable-line
 }));
 
 module.exports = app;
