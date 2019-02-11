@@ -19,6 +19,8 @@ app.use(cors());
 
 app.use('/export-pdf', exportPDF);
 
-app.use('/', (...args) => listener(...args).catch(error => ({ error })));
+app.use('/', (...args) => listener(...args).catch((error) => {
+  console.error(error);
+}));
 
 module.exports = app;
