@@ -28,6 +28,7 @@ const store = fortune({
     description: String,
     datePrepared: Number,
 
+    needDevelopmentSite: Boolean,
     needProjectArea: Boolean,
     needRezoning: Boolean,
     needUnderlyingZoning: Boolean,
