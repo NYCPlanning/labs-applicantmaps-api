@@ -17,22 +17,44 @@ switch (process.env.NODE_ENV) {
 
 async function generatePdf(id, format = 'Tabloid', landscape = true) {
   const url = `${host}/projects/${id}/edit/map/edit`;
-
   try {
     const browser = await puppeteer.launch({
       dumpio: true,
       args: ['--disable-setuid-sandbox', '--no-sandbox'],
     });
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: 'networkidle0' });
+
+    // setup page function to resolve local promise
+    let resolveMapLoaded;
+    const awaitMapLoaded = new Promise((resolve) => {
+      resolveMapLoaded = resolve;
+    });
+    await page.exposeFunction('mapLoaded', () => {
+      resolveMapLoaded();
+    });
+
+    // register page function as custom event listener
+    await page.evaluateOnNewDocument((type) => {
+      document.addEventListener(type, () => {
+        window.mapLoaded();
+      });
+    }, 'mapLoaded');
+
+    // navigate to page
+    await page.goto(url);
+    // wait for map resources to load
+    await awaitMapLoaded;
+
     const buffer = await page.pdf({
       format,
       landscape,
     });
 
+    browser.close();
+
     return buffer;
   } catch (e) {
-    throw (Error(e));
+    throw new Error(e);
   }
 }
 
