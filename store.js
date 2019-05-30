@@ -34,6 +34,7 @@ const store = fortune({
     needUnderlyingZoning: Boolean,
     needCommercialOverlay: Boolean,
     needSpecialDistrict: Boolean,
+    hasCompletedWizard: Boolean,
 
     developmentSite: Object,
     projectArea: Object,
