@@ -19,6 +19,18 @@ app.use(cors());
 
 app.use('/export-pdf', exportPDF);
 
+app.route('/areaMap').all((req, res) => { // eslint-disable-line
+  res.status(403).send('Forbidden')
+})
+
+app.route('/geometricProperty').all((req, res) => { // eslint-disable-line
+  res.status(403).send('Forbidden')
+})
+
+app.route('/taxMap').all((req, res) => { // eslint-disable-line
+  res.status(403).send('Forbidden')
+})
+
 app.use('/', (...args) => listener(...args).catch((error) => {
   console.error(error); // eslint-disable-line
 }));

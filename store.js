@@ -10,7 +10,14 @@ class ApplicationAdapter extends MongodbAdapter {
     const [type, ids] = args;
 
     // if requesting a project and no ids (all)
-    if (type === 'project' && !ids) return [];
+    if (
+        (
+          type === 'project' ||
+          type === 'areaMap' ||
+          type === 'geometricProperty' ||
+          type === 'taxMap'
+        ) &&
+      !ids) return [];
 
     return super.find(...args);
   }
