@@ -16,7 +16,7 @@
     "express": "~4.15.5",
     "express-json-validator-middleware": "^1.2.3",
     "fortune": "5.5.2",
-    "fortune-http": "1.2.9",
+    "fortune-http": "1.2.26",
     "fortune-json-api": "2.1.5",
     "fortune-mongodb": "1.2.0",
     "mongoose": "^5.1.4",
@@ -38,6 +38,6 @@
     "mocha": "^5.2.0"
   },
   "engines": {
-    "node": "^8.11.3"
+    "node": "^16"
   }
 }
