@@ -1,0 +1,21 @@
+services:
+  mongo:
+    image: mongo:6.0.5-jammy
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    ports:
+      - 27017:27017
+    volumes:
+      - db:/data/db
+  api:
+    build: .
+    command: npm run devstart
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: mongodb://root:example@mongo:27017/
+volumes:
+  db:
