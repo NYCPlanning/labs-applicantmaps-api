@@ -39,7 +39,7 @@ This option is useful when you are making changes to the API
 * Copy the contents of `env.example.local` to a new file called `.env`. The contents of `.env.example.local` are pre-configured to connect to the database created by `compose.yaml`
   - `cat .env.example.local > .env` (or manually create the file, then copy and paste)
 * Start the api server by running
-  - `yarn run devstart`
+  - `yarn run dev`
 
 ## Endpoints
 
