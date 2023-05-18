@@ -10,7 +10,7 @@ services:
       - db:/data/db
   api:
     build: .
-    command: npm run devstart
+    command: yarn run devstart
     ports:
       - 3000:3000
     depends_on:
