@@ -1,4 +1,4 @@
-FROM node:16-bullseye
+FROM node:lts-hydrogen
 
 WORKDIR /usr/app
 COPY package.json .
