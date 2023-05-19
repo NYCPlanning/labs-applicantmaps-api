@@ -1,5 +1,5 @@
 services:
-  mongo:
+  database:
     image: mongo:6.0.5-jammy
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
@@ -14,8 +14,8 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - mongo
+      - database
     environment:
-      MONGO_URI: mongodb://root:example@mongo:27017/
+      MONGO_URI: mongodb://root:example@database:27017/
 volumes:
   db:

@@ -29,7 +29,7 @@ This option is useful when you are working on the frontend and simply want to ru
 This option is useful when you are making changes to the API
 
 * Run MongoDB in docker
-  - `docker compose up mongo`
+  - `docker compose up database`
 * Install the [listed](.nvmrc) version of Node
   - (If using nvm) `nvm install`
 * Install Yarn and Nodemon
