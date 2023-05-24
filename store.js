@@ -11,12 +11,12 @@ class ApplicationAdapter extends MongodbAdapter {
 
     // if requesting a project and no ids (all)
     if (
-        (
-          type === 'project' ||
+      (
+        type === 'project' ||
           type === 'areaMap' ||
           type === 'geometricProperty' ||
           type === 'taxMap'
-        ) &&
+      ) &&
       !ids) return [];
 
     return super.find(...args);
