@@ -7,3 +7,5 @@ RUN npm i --location=global nodemon
 RUN yarn
 
 COPY . .
+
+CMD ["yarn", "run", "dev"]
