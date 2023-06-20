@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www",
+    "dev": "nodemon ./bin/www",
     "test": "NODE_ENV=test node ./node_modules/mocha/bin/mocha ./test/**/*.js --exit"
   },
   "dependencies": {
@@ -38,6 +38,6 @@
     "mocha": "^5.2.0"
   },
   "engines": {
-    "node": "^16"
+    "node": "^18"
   }
 }
