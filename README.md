@@ -19,17 +19,9 @@ You will need the following things installed on your computer.
 - [Docker compose v2](https://docs.docker.com/compose/compose-file/)
   - Compose is available as a CLI plugin or through a setting in Docker Desktop
 
-### Option 1: MongoDB and Node API in docker network
-This option is useful when you are working on the frontend and simply want to run a local backend
-
-* Run all services in the compose file, which includes the database and api
-  - `docker compose up` 
-
-### Option 2: MongoDB in docker and Node API on host
-This option is useful when you are making changes to the API
 
 * Run MongoDB in docker
-  - `docker compose up database`
+  - `docker compose up`
 * Install the [listed](.nvmrc) version of Node
   - (If using nvm) `nvm install`
 * Install Yarn and Nodemon
